@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  service:
+    build:
+      context: .
+    volumes:
+      - ./:/usr/app
+      - /usr/app/node_modules/
+    depends_on:
+      - redis
+
+  redis:
+    image: redis
