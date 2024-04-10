@@ -10,9 +10,11 @@ const init = async () => {
     const client = await RedisClient.createClient({
         addresses,
     });
+    console.log('connected to Redis');
     await client.set("foo", "bar");
     const value = await client.get("foo");
-    console.log(value);
+    console.log('fetching from Redis:');
+    console.log({ value });
     client.close();
 };
 init();
